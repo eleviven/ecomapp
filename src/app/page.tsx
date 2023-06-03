@@ -1,9 +1,10 @@
 import { type NextPage } from "next";
 import { ProductsGrid } from "@/sections";
 import { useFetchAsync } from "@/hooks";
+import { CONFIG } from "@/constants";
 
 const Home: NextPage<any> = async ({ searchParams }) => {
-  const url = new URL("http://localhost:3000/api/products");
+  const url = new URL(`${CONFIG.APP_URL}/api/products`);
 
   Object.entries(searchParams).forEach(([key, value]: any) =>
     url.searchParams.set(key, value)
